@@ -8,8 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #e8f4f8;  /* azul claro hospitalar */
-    font-family: Arial, sans-serif;
+    background-color: #e8f4f8;  /* azul claro */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .cabecalho {
@@ -36,28 +36,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 0 0 0; /* Removido o padding inferior do main */
 }
 
 main h2 {
     margin-bottom: 30px;
-    color: #1a5276;  /* azul escuro */
+    color: #1a5276;
     text-align: center;
 }
 
-footer {
-    background-color: #1a5276;
-    padding: 15px 25px;
-    color: #ffffff;
-    text-align: center;
-}
-
-footer h1 {
-    color: #ffffff;
-    font-size: 18px;
-}
-
-section {
+/* --- CARTÕES INTERATIVOS (FLIP CARDS) --- */
+.container-cartoes {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
@@ -82,7 +71,8 @@ section {
     transform-style: preserve-3d;
 }
 
-.cartao:hover .cartao-interno {
+.cartao:hover .cartao-interno,
+.cartao:focus .cartao-interno {
     transform: rotateY(180deg);
 }
 
@@ -101,21 +91,24 @@ section {
 }
 
 .cartao-frente {
-    background-color: #d4e6f1;  /* azul bem claro */
+    background-color: #d4e6f1;
 }
 
 .cartao-verso {
     transform: rotateY(180deg);
-    background-color: #aed6f1;  /* azul mais forte */
+    background-color: #aed6f1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .cartao-imagem {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
 }
 
-.cartao-frente p, .cartao-verso p {
+.cartao-frente p {
     padding: 16px;
     font-size: 14px;
     line-height: 1.5;
@@ -128,15 +121,171 @@ section {
     font-weight: 500;
 }
 
-/* Responsividade */
+.cartao-conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    box-sizing: border-box;
+    flex: 1;
+    justify-content: center;
+}
+
+.cartao-conteudo p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #1a2a3a;
+}
+
+/* Estilização dos Rótulos */
+.rotulo {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+.rotulo.mito {
+    color: #c0392b;
+}
+
+.rotulo.verdade {
+    color: #1e8449;
+}
+
+.rotulo.curiosidade {
+    color: #d35400;
+}
+
+/* --- SEÇÃO GALERIA --- */
+.galeria-secao {
+    margin: 60px auto 20px auto;
+    max-width: 1192px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.galeria-secao h2 {
+    font-size: 1.6rem;
+    color: #1a5276;
+    margin-bottom: 8px;
+}
+
+.galeria-subtitulo {
+    font-size: 0.95rem;
+    color: #4a6b82;
+    margin-bottom: 30px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.galeria-item {
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(20, 40, 60, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(20, 40, 60, 0.25);
+}
+
+.galeria-imagem {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+figcaption {
+    padding: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a5276;
+    background-color: #f4f9fc;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #1a3b5c;
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.rodape-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.referencias {
+    margin-bottom: 25px;
+}
+
+.referencias h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #e0e6ed;
+}
+
+.referencias ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.referencias li {
+    font-size: 0.9rem;
+    color: #c0d1e3;
+    line-height: 1.4;
+}
+
+.divisor-footer {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 25px auto;
+    width: 80%;
+}
+
+.creditos h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.creditos p {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #d1dce5;
+}
+
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 1200px) {
-    section {
-        max-width: 600px; /* 2 x 280px + 1 gap x 24px */
+    .container-cartoes {
+        max-width: 600px;
     }
 }
 
 @media (max-width: 650px) {
-    section {
+    .container-cartoes {
         max-width: 320px;
         gap: 16px;
     }
@@ -147,7 +296,7 @@ section {
     }
     
     .cartao-imagem {
-        height: 180px;
+        height: 160px;
     }
 }
 
@@ -164,55 +313,47 @@ section {
     }
     
     .cartao {
-        height: 300px;
-    }
-    
-    .cartao-imagem {
-        height: 150px;
-    }
-    
-    .cartao-frente p, .cartao-verso p {
-        font-size: 12px;
-        padding: 12px;
+        height: 320px;
     }
 }
 
-/* Garante alinhamento central de todo o conteúdo do verso */
-.cartao-verso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* --- BLOCO INFORMATIVO DE ROBÓTICA --- */
+.robotica-info {
+  background-color: #ffffff;
+  border-left: 5px solid #1a5276;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 35px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(20, 40, 60, 0.08);
 }
 
-/* Garante que o container do texto fique centralizado e com margem */
-.cartao-conteudo {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 12px;
-  box-sizing: border-box;
+.robotica-info h3 {
+  color: #1a5276;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-/* Estilização e centralização do rótulo */
-.rotulo {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
+.robotica-info p {
+  color: #333333;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin-bottom: 8px;
-  width: 100%;
 }
 
-/* Container Principal do Rodapé */
+.robotica-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- RODAPÉ (SEM ESPAÇAMENTO BRANCO ABAIXO) --- */
 footer {
-  background-color: #1a3b5c; /* Tom azul escuro do seu design */
-  color: #ffffff;
-  padding: 40px 20px;
-  margin-top: 50px;
+    width: 100%;
+    background-color: #1a3b5c;
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    box-sizing: border-box;
 }
 
 .rodape-conteudo {
@@ -221,7 +362,6 @@ footer {
   text-align: center;
 }
 
-/* Seção de Referências */
 .referencias {
   margin-bottom: 25px;
 }
@@ -233,12 +373,12 @@ footer {
 }
 
 .referencias ul {
-  list-style-type: none; /* Remove os marcadores padrão da lista */
+  list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Espaçamento vertical entre cada fonte */
+  gap: 8px;
 }
 
 .referencias li {
@@ -247,7 +387,6 @@ footer {
   line-height: 1.4;
 }
 
-/* Linha Divisória */
 .divisor-footer {
   border: 0;
   height: 1px;
@@ -256,7 +395,6 @@ footer {
   width: 80%;
 }
 
-/* Créditos dos Alunos */
 .creditos h2 {
   font-size: 1.1rem;
   margin-bottom: 10px;
