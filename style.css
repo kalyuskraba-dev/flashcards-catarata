@@ -206,3 +206,65 @@ section {
   margin-bottom: 8px;
   width: 100%;
 }
+
+/* Container Principal do Rodapé */
+footer {
+  background-color: #1a3b5c; /* Tom azul escuro do seu design */
+  color: #ffffff;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.rodape-conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Seção de Referências */
+.referencias {
+  margin-bottom: 25px;
+}
+
+.referencias h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #e0e6ed;
+}
+
+.referencias ul {
+  list-style-type: none; /* Remove os marcadores padrão da lista */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaçamento vertical entre cada fonte */
+}
+
+.referencias li {
+  font-size: 0.9rem;
+  color: #c0d1e3;
+  line-height: 1.4;
+}
+
+/* Linha Divisória */
+.divisor-footer {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 25px auto;
+  width: 80%;
+}
+
+/* Créditos dos Alunos */
+.creditos h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.creditos p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  color: #d1dce5;
+}
